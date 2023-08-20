@@ -1,0 +1,9 @@
+Landing - This will appear at localhost:3000/
+
+Catalog - This will appear at localhost:3000/catalog
+
+Movie Detail - This will appear at localhost:3000/movies/:id
+
+
+search by keyword: https://api.themoviedb.org/3/search/movie?query=cat&api_key=
+trending movies: /3/trending/movie/day
