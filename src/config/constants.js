@@ -20,6 +20,14 @@ export const urlImagePoster=function(size, poster_path) {
     return TMDB_IMAGE_PATH_PREFIX + size + poster_path;
 }
 
+export const urlVideosByMovie=function(movieId) {
+    return `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${TMDB_API_KEY}`;
+}
+
+export const urlVideoByKey=function(key) {
+    return `https://www.youtube.com/embed/${key}`;
+}
+
 export const usersData = [
     {name: "Mona", budget: "10", color: "blue", rentedMovies: []},
     {name: "Jasmine", budget: "20", color: "red", rentedMovies: []},

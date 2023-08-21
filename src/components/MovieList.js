@@ -9,7 +9,7 @@ function MovieList({user, movies, showRented, rentMovie}) {
     }
 
     return (<> 
-        <hr style={{"z-index": "-2"}}/>
+        <hr style={{"zIndex": "-2"}}/>
         <div className="movie-list-container-header spaced-word">{showRented ? "Rented movies" : "Popular movies"}</div>
         <div className="movie-list-container">
             {movies.map((movie, index) => 
