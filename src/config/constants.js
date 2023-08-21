@@ -29,8 +29,8 @@ export const urlVideoByKey=function(key) {
 }
 
 export const usersData = [
-    {name: "Mona", budget: "10", color: "blue", rentedMovies: []},
-    {name: "Jasmine", budget: "20", color: "red", rentedMovies: []},
-    {name: "Aura", budget: "30", color: "green", rentedMovies: []},
-    {name: "Tina", budget: "40", color: "yellow", rentedMovies: []}
+    {name: "Mona", budget: 10, color: "blue", rentedMovies: []},
+    {name: "Jasmine", budget: 20, color: "red", rentedMovies: []},
+    {name: "Aura", budget: 30, color: "green", rentedMovies: []},
+    {name: "Tina", budget: 40, color: "yellow", rentedMovies: []}
 ]

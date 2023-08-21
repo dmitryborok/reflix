@@ -87,6 +87,7 @@ body {
   height: 30px;
   font-family: 'PatrickHand';
   font-size: 1em;
+  margin: 5px;
 }
 
 .clear-search-btn {
@@ -133,7 +134,7 @@ body {
   right: 0px;
 }
 
-.movie-description-container {
+.general-centered-container {
   margin-left: 10%;
   margin-right: 10%;
   text-align: center;
@@ -154,4 +155,50 @@ body {
 
 .fa-enabled {
   box-shadow: 2px;
+}
+
+.valid{
+  border:2px solid blue;
+}
+
+.invalid{
+  border:2px solid red;
+}
+  
+.card-container {
+  width: 50%;
+  margin: auto;
+  display: grid;
+  grid-template-areas: "num num num""name name name""expir expir cvc""amount button button";
+}
+
+#card-number {
+  grid-area: num;
+}
+
+#card-holder-name {
+  grid-area: name;
+}
+
+#card-expiration-date {
+  grid-area: expir;
+}
+
+#card-cvc {
+  grid-area: cvc;
+}
+
+#card-amount {
+  grid-area: amount;
+}
+
+.card-container > div {
+  grid-area: button;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card-container div button{
+  font-size: 1em;
+  margin: 2px;
 }

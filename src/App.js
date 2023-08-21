@@ -7,6 +7,7 @@ import {usersData} from './config/constants';
 import NavBar from './components/NavBar';
 import CatalogHeader from './components/CatalogHeader';
 import {USDollarFormat} from "./services/services";
+import AddMoney from './components/AddMoney';
 
 
 function App() {
@@ -35,6 +36,14 @@ function App() {
     setUsers(newUsers);
 }
 
+const updateBudget = function(amount) {
+  if (currentUserIndex != -1) {
+    const newUsers = [...users];
+    newUsers[currentUserIndex].budget += amount;
+    setUsers(newUsers);
+  }
+}
+
   return (
     <Router>
       <div>
@@ -48,6 +57,7 @@ function App() {
         <Route path="" element={<Landing users={users} setCurrentUserIndex={setCurrentUserIndex}/>} />
         <Route path="/catalog" element={<CatalogHeader user={users[currentUserIndex]} rentMovie={rentMovie}/>} />
         <Route path="/movies/:movieId" element=<MovieDescriptionPage /> />
+        <Route path="/addmoney" element={<AddMoney user={users[currentUserIndex]} updateBudget={updateBudget}/>} />
       </Routes>
     </Router>
   );

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import {urlPopular, urlSearch} from "../config/constants"
 import CatalogPage from "./CatalogPage";
-import {USDollarFormat} from "../services/services";
+import Budget from "./Budget";
 
 
 function CatalogHeader({user, rentMovie}) {
@@ -43,7 +43,7 @@ function CatalogHeader({user, rentMovie}) {
     return (<div>
         <span className="spaced-word">Search: </span><input type="text" className="text-input" value={query} onChange={updateQuery}></input>
         <button className="clear-search-btn" onClick={clearSearch}>X</button>
-        {user ? <div className="top-right">{user.name + "'s budget: " + USDollarFormat.format(user.budget)}</div> : null}
+        {user ? <Budget user={user} /> : null}
         <CatalogPage user={user} movies={movies} rentMovie={rentMovie} />
     </div>  );
 }

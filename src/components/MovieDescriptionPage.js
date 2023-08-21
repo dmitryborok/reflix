@@ -1,6 +1,6 @@
 import { useParams } from "react-router";
 import {TMDB_LARGE_IMAGE_SIZE, urlImagePoster, urlMovieById, urlVideosByMovie, urlVideoByKey } from "../config/constants"
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function MovieDescriptionPage() {
     const {movieId} = useParams();
@@ -31,7 +31,7 @@ function MovieDescriptionPage() {
 
     const releaseYear = new Date(movie.release_date).getFullYear();
 
-    return (<div className="movie-description-container">
+    return (<div className="general-centered-container">
         <h2>{movie.title + " ("+ releaseYear +")"}</h2>
         <div class="movie-and-video-container">
             <img src={urlImagePoster(TMDB_LARGE_IMAGE_SIZE, movie.poster_path)} />
