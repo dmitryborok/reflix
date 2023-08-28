@@ -33,11 +33,11 @@ function MovieDescriptionPage() {
 
     return (<div className="general-centered-container">
         <h2>{movie.title + " ("+ releaseYear +")"}</h2>
-        <div class="movie-and-video-container">
-            <img src={urlImagePoster(TMDB_LARGE_IMAGE_SIZE, movie.poster_path)} />
+        <div className="movie-and-video-container">
+            <img src={urlImagePoster(TMDB_LARGE_IMAGE_SIZE, movie.poster_path)} alt={movie.title + ": poster not found"}/>
             {videoUrl === "" ? null :
                 <iframe src={videoUrl} width="1000" height="750" title="Teaser Trailer" 
-                frameborder="0" allowFullScreen/>
+                allowFullScreen/>
             }
         </div>
         <p>{movie.overview}</p>

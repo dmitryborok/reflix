@@ -42,7 +42,6 @@ body {
   color:aliceblue;
   font-family: 'PatrickHand';
   font-size: 2em;
-  /* width: 95vw; */
   margin: auto;
 }
 
@@ -201,4 +200,39 @@ body {
 .card-container div button{
   font-size: 1em;
   margin: 2px;
+}
+
+.modal {
+  position: sticky;
+  left: 25vw;
+  width: 50vw;
+  top: 5vh;
+  height: 90vh;
+  border: solid 5px orange;
+  background-color: green;
+  border-radius: 5px;
+  padding: auto;
+  text-align: center;
+  z-index: 10;
+}
+
+.invisible {
+  display: none;
+}
+
+.hide-modal-btn {
+  box-sizing: border-box;
+  position: relative;
+  bottom: 10px;
+  margin: 10px;
+  height: 40px;
+  width: 100px;
+  font-size:large;
+  text-align: center;
+}
+
+.giphy-placeholder {
+    position: relative;
+    width: 600px;
+    height: 450px;
 }

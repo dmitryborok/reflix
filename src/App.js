@@ -8,15 +8,24 @@ import NavBar from './components/NavBar';
 import CatalogHeader from './components/CatalogHeader';
 import {USDollarFormat} from "./services/services";
 import AddMoney from './components/AddMoney';
+import Modal from './components/Modal';
 
 
 function App() {
   const [users, setUsers] = useState(usersData);
   const [currentUserIndex, setCurrentUserIndex] = useState(-1); // no user selected in the beginning
 
+  const [shouldShowModal, setShouldShowModal] = useState(false);
+  const [movieTitleForModal, setMovieTitleForModal] = useState("");
+
+  const hideModal = function() {
+    setShouldShowModal(false);
+  }
+
   const rentMovie=function(movie) {
     // if movie is not in the rented list for the current user, rent it
     // else unrent it
+    // returns final status of the movie: true if rented, false if not nrented  
     const newUsers = [...users];
     const indexRentedMovie = users[currentUserIndex].rentedMovies.
                               findIndex(rentedMovie => movie.id === rentedMovie.id);
@@ -24,16 +33,20 @@ function App() {
         if (users[currentUserIndex].budget >= movie.rentPrice) {
             newUsers[currentUserIndex].budget -= movie.rentPrice;
             newUsers[currentUserIndex].rentedMovies.push(movie);
+            setUsers(newUsers);
+            setShouldShowModal(true);
+            setMovieTitleForModal(movie.title);
         } else {
            alert(`You budget is ${USDollarFormat.format(users[currentUserIndex].budget)},
                   which is not enough for renting a movie worth ${USDollarFormat.format(movie.rentPrice)}`);
-          return;
+          return false;
         }
     } else {
         newUsers[currentUserIndex].budget += movie.rentPrice;
         newUsers[currentUserIndex].rentedMovies.splice(indexRentedMovie, 1);
-    }
-    setUsers(newUsers);
+        setUsers(newUsers);
+        return false;
+      }
 }
 
 const updateBudget = function(amount) {
@@ -52,7 +65,7 @@ const updateBudget = function(amount) {
             <div>{currentUserIndex === -1 ? "No user selected" : "Current user: " + users[currentUserIndex].name} </div>
           </div>
       </div>
-          {/* add routes and route here */}
+      {shouldShowModal ? <Modal show={shouldShowModal} movieTitle={movieTitleForModal} hideModal={hideModal} /> : null}
       <Routes>
         <Route path="" element={<Landing users={users} setCurrentUserIndex={setCurrentUserIndex}/>} />
         <Route path="/catalog" element={<CatalogHeader user={users[currentUserIndex]} rentMovie={rentMovie}/>} />

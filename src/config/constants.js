@@ -3,6 +3,8 @@ export const TMDB_API_ACCESS_TOKEN="eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiZTgxNzI2MWI
 const TMDB_IMAGE_PATH_PREFIX = "https://image.tmdb.org/t/p/w";
 export const TMDB_LARGE_IMAGE_SIZE = 500;
 export const TMDB_SMALL_IMAGE_SIZE = 300;
+const GIPHY_API_KEY = "aoAgVNwWXZshSsdfrOy2a0sW89UdNCZK";
+
 
 export const urlSearch=function(query) {
     return `https://api.themoviedb.org/3/search/movie?query=${query}&api_key=${TMDB_API_KEY}`
@@ -26,6 +28,10 @@ export const urlVideosByMovie=function(movieId) {
 
 export const urlVideoByKey=function(key) {
     return `https://www.youtube.com/embed/${key}`;
+}
+
+export const urlGiphy = function(imgQuery) {
+    return `https://api.giphy.com/v1/gifs/search?q=${imgQuery}&api_key=${GIPHY_API_KEY}`
 }
 
 export const usersData = [
